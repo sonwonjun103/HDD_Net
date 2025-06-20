@@ -11,3 +11,13 @@ External Dataset: Seoul St.Mary's Hospital (Test: 47)
 
 > HDD-Net architecture
 
+Below is an overview of the proposed dual-decoder network architecture:
+
+![HDD-Net architecture](Architecture.png)
+
+> Training
+
+To train the model, run the following command:
+
+```bash
+python main.py --model UNet --filename HDD
