@@ -205,14 +205,14 @@ class Module(nn.Module):
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, seg, edge):
-        seg_ca = self.seg_ca(seg)
-        seg_edge = self.edge_ca(edge)
+        dilate_seg = self.seg_dilate(seg)
+        dilate_edge = self.edge_dilate(edge)
 
-        dilate_seg = self.upsample(self.seg_dilate(seg_ca))
-        dilate_edge = self.upsample(self.edge_dilate(seg_edge))
+        seg_ca = self.sigmoid(self.seg_ca(dilate_seg))
+        edge_ca = self.sigmoid(self.edge_ca(dilate_edge))
 
 
-        return edge + self.sigmoid(dilate_seg), seg * self.sigmoid(dilate_edge)
+        return edge + self.upsample(seg_ca), seg * self.upsample(edge_ca)
 
 # ======================================================================================= #    
 
