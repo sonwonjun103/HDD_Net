@@ -66,9 +66,9 @@ class Trainer():
                         loss4_1, loss4_2 = self.loss_fn(hippo, impaint_output.to(device).float())
 
                         loss1 = loss1_1 + loss1_2 # seg 1
-                        loss2 = loss2_1 + loss2_2 # edge 1
+                        loss2 = 0.2 * loss2_1 + 0.2 * loss2_2 # edge 1
                         loss3 = loss3_1 + loss3_2 # seg 2
-                        loss4 = 0.8 * loss4_1 + 0.8 * loss4_2 # edge 2
+                        loss4 = 0.2 * loss4_1 + 0.2 * loss4_2 # edge 2
 
                         loss = loss1 + loss2 + loss3 + loss4
 
