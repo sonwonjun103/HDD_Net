@@ -67,8 +67,8 @@ class Trainer():
 
                         loss1 = loss1_1 + loss1_2 # seg 1
                         loss2 = 0.2 * loss2_1 + 0.2 * loss2_2 # edge 1
-                        loss3 = loss3_1 + loss3_2 # seg 2
-                        loss4 = 0.2 * loss4_1 + 0.2 * loss4_2 # edge 2
+                        loss3 = 0.2 * loss3_1 + 0.2 * loss3_2 # edge 2
+                        loss4 = loss4_1 + loss4_2 # seg 2
 
                         loss = loss1 + loss2 + loss3 + loss4
 
